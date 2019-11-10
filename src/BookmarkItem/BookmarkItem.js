@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Rating from '../Rating/Rating';
 import BookmarksContext from '../BookmarksContext';
 import config from '../config';
@@ -57,6 +58,9 @@ export default function BookmarkItem(props) {
             >
               Delete
           </button>
+            <Link to={`/edit/${props.id}`}>
+              Edit
+            </Link>
           </div>
         </li>
 
@@ -73,7 +77,7 @@ BookmarkItem.propTypes = {
     const prop = props[propName];
 
     // do the isRequired check
-    if(!prop) {
+    if (!prop) {
       return new Error(`${propName} is required in ${componentName}. Validation Failed`);
     }
 
